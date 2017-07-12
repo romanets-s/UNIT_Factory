@@ -1,0 +1,14 @@
+breakpoint set --source-pattern "std::cin|count = 1|return tmp|return biggest"
+process continue
+expression -- $rsi -= 4
+process continue
+process continue
+expression -- $rsi += 4
+process continue
+thread step-in
+expression -- count = 0
+proces continue
+expression -- tmp = (min[0] + min[1] + min[2])/3
+process continue
+expression -- biggest = ((min[0] >= min[1]) ? min[0] : (min[1] >= min[2] ? min[1] : min[2]))
+process continue
