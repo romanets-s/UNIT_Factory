@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+ol, ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  text-align: center;
+}
+.menu {
+  width: 90%;
+  max-width: 600px;
+}
+.menu ul {
+  display: none;
+}
+.menu li {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.menu input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+}
+.menu label, .menu a {
+  position: relative;
+  display: block;
+  padding: 18px 18px 18px 64px;
+  background: #4d5158;
+  box-shadow: inset 0 -1px #555960;
+  color: #ffffff;
+}
+.menu label {
+  cursor: pointer;
+}
+.menu input[type=checkbox]:checked + label + ul, .menu input[type=checkbox]:checked + label:nth-of-type(n) + ul {
+  display: block;
+}
+.menu ul label, .menu ul a {
+  background: #35383d;
+  box-shadow: inset 0 -1px #41444a;
+  padding-left: 82px;
+}
+.no-touch .menu ul label:hover, .no-touch .menu ul a:hover {
+  background: #3c3f45;
+}
+.menu > li:last-of-type > label, .menu > li:last-of-type > a, .menu > li > ul > li:last-of-type label, .menu > li > ul > li:last-of-type a {
+  box-shadow: none;
+}
+
+.menu ul ul label, .menu ul ul a {
+  padding-left: 100px;
+}
+.menu ul ul ul label, .menu ul ul ul a {
+  padding-left: 118px;
+}

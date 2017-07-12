@@ -1,0 +1,64 @@
+		*{
+			border: 0;
+		}
+		.masa {
+			text-align: right;
+			font-size: 0.7vw;
+		}
+		.elem {
+			text-align: center;
+			font-weight: bold;
+			font-size: 1vw;
+		}
+		.number {
+			text-align: left;
+			font-size: 0.7vw;
+		}
+		h1{
+			font-size: 3vw;
+		}
+		.nonmetal {
+			background-color: #8A2BE2;
+		}
+		.alkearth {
+			background-color: yellow;
+		}
+		.alkmetal {
+			background-color: coral;
+		}
+		.transmetal {
+			background-color: gold;
+		}
+		.basicmetal {
+			background-color: #FF8C00;
+		}
+		.semimetal {
+			background-color: lawngreen;
+		}
+		.halogen {
+			background-color: #DA70D6;
+		}
+		.lanth {
+			background-color: #00FA9A;
+		}
+		.act {
+		background-color: #98FB98;
+		}
+		.gas {
+			background-color: skyblue;
+		}
+		body {
+			background-image: url(https://ak2.picdn.net/shutterstock/videos/14351464/thumb/1.jpg);
+			background-repeat: repeat-y;
+			background-size: cover;
+		}
+		h1, th {
+			color: #fff;
+		}
+		th{
+			font-size: 1.5vw;
+		}
+		p{
+			margin: 1vw;
+			font-size: 1.255vw;
+		}

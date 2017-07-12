@@ -1,0 +1,116 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 16px;
+	font-family: sans-serif;
+	background-color: #4F4F4F;
+}
+ul{
+	list-style-type: none;
+}
+ul li{
+	display: inline-block;
+}
+ul li:first-child{
+	margin-bottom: 60px;
+}
+.day42{
+	height: 100px;
+}
+.loupe{
+	position: absolute;
+	right: 55px;
+}
+.linkHead{
+	width: 20px;
+	float: right;
+}
+.linkHead img{
+	width: 100%;
+}
+.container{
+	position: relative;
+	margin: auto;
+	width: 1280px;
+}
+.block{
+	box-shadow: 10px 10px 10px black;
+	border-radius: 10px;
+	margin: 15px;
+	padding: 10px;
+	background-color: #8F8F8F;
+}
+.left, .right{
+	width: 12%;
+}
+.center{
+	width: 75%;
+}
+.left, .center, .right{
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+.middle{
+	padding: 0 25px;
+}
+.center .block img{
+	width: 100%;
+	height: auto;
+}
+.right .block{
+	min-height: 400px;
+}
+.ico{
+	display: block;
+	margin: 10px auto 10px;
+	width: 60px;
+}
+.left .ico:hover{
+	border: 5px solid red;
+	border-radius: 10px;
+	margin: -5px auto -5px;
+}
+.left .top.ico:hover{
+	margin-top: 5px;
+}
+.left .bot.ico:hover{
+	margin-bottom: 5px;
+}
+.left .hover.ico:hover{
+	margin: 15px auto 15px;
+	border: none;
+}
+.left .hover{
+	border: 5px solid red;
+	border-radius: 10px;
+}
+.brick{
+	width: 100%;
+	height: 60px;
+	background-image: url("resources/brick.jpg");
+}
+.form{
+	position: relative;
+	bottom: 100px;
+	width: 450px;
+	padding: 15px 15px 50px;
+	background-color: #8F8;
+	border-radius: 10px;
+	box-shadow: 10px 10px 10px black;
+}
+.big{
+	font-size: 30px;
+}
+.shadow{
+	text-shadow: -5px 5px 5px red;
+}
+.text{
+	width: 20em;
+}
+button{
+	padding: 1px;
+	background-color: white;
+}

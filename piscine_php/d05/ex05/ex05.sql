@@ -1,0 +1,1 @@
+DELETE FROM db_sromanet.ft_table WHERE `id` <= 5;

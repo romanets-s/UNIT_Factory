@@ -1,0 +1,287 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+ul{
+    list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+.container{
+    max-width: 1920px;
+    margin: 0 auto;
+}
+header{
+    overflow: hidden;
+    border: 2px solid black;
+    border-radius: 15%;
+	background-image: url("../img/header.jpg");
+	background-size: 100% 100%;
+    padding: 10px;
+	text-align: center;
+}
+
+body{
+	background-color: lavender;
+}
+
+.logo img{
+	width: 150px;
+}
+.logo, .status, .menu, .login{
+	width: 20%;
+	display: inline-block;
+	vertical-align: top;
+}
+.container .status{
+	margin-top: 65px;
+	font-size: 24px;
+}
+.container .menu{
+	width: 37%;
+	margin-top: 65px;
+	font-size: 20px;
+}
+.container .menu ul{
+	display: block;
+	cursor: pointer;
+
+}
+.container .menu ul li{
+	display: inline-block;
+	padding: 5px;
+}
+.container .menu ul li a:hover{
+	color: green;
+}
+.kostyl form{
+	display: inline-block;
+
+}
+.kostyl input[type=submit]{
+	cursor: pointer;
+	background: none;
+}
+.kostyl input[type=submit]:hover{
+	color: green;
+	border-radius: 50%;
+}
+.hidden{
+	display: none;
+}
+.container .login{
+	margin-top: 30px;
+}
+.container .login .form form{
+	text-align: right;
+}
+.container .login .form .form-top input[type=submit]{
+	cursor: pointer;
+	background: #88FF88;
+	padding: 1px 5px;
+	margin: 1px 50px 0 0;
+}
+.container .login .form .form-top input{
+	border: 1px solid black;
+}
+.kostyl {
+	text-align: right;
+	margin-right: 10px;
+}
+.kostyl input[type=submit]{
+	margin: 0 5px 0 5px;
+}
+.container .login p{
+	font-weight: bold;
+}
+@media (max-width:1000px) {
+	.logo, .status, .menu, .login{
+		width: 45%;
+	}
+}
+.item .products{
+	width: 20%;
+	float: left;
+	padding: 20px;
+	text-align: center;
+	min-height: 20%;
+}
+.item .products:nth-child(5n){
+	clear: both;
+}
+
+.item .products .prod_img img{
+	width: 100%;
+	border-radius: 50%;
+}
+
+.item .products .prod_img{
+	text-align: center;
+	vertical-align: middle;
+}
+
+.Xprod_img{
+	width: 100%;
+}
+
+.XXprod_img{
+	height: 200px;
+	border-radius: 50%;
+}
+.item .products .name{
+	font-size: 24px;
+	font-weight: bold;
+}
+.item .products .category{
+	font-style: italic;
+	font-size: 16px;
+}
+.item .products:hover{
+	border: 2px solid skyblue;
+	margin: -2px;
+	border-radius: 50%;
+}
+.item{
+	padding-left: 5%;
+	margin-top: 25px;
+	text-align: center;
+	vertical-align: top;
+}
+footer{
+	clear: both;
+}
+.add_item{
+	margin-top: 15px;
+	border-bottom: 1px solid black;
+	font-size: 16px;
+	padding-bottom: 15px;
+	overflow: hidden;
+}
+.add_item h1{
+	text-align: center;
+	font-size: 26px;
+	margin-bottom: 15px;
+}
+.add_item input{
+	border: 1px solid black;
+	height: 15px;
+}
+.add_item input[type=file]{
+	border: none;
+
+}
+.add_item div{
+	text-align: center;
+	width: 150px;
+	float: left;
+}
+.add_item input[type=submit]{
+	border: none;
+	padding: 5px;
+	height: 25px;
+	margin: 10px 0 0 35px;
+	cursor: pointer;
+	background-color: dodgerblue;
+	color: white;
+}
+.red, .green{
+	text-align: center;
+	margin: 10px;
+}
+.red{
+	color: red;
+}
+.green{
+	color: green;
+}
+.del_item{
+	position: relative;
+}
+.del_item input{
+	background: none;
+	color: red;
+	font-size: 30px;
+	cursor: pointer;
+
+}
+.clearfix{
+	clear: both;
+}
+.signg_btn{
+	cursor: pointer;
+}
+.count_product{
+	border: 1px solid darkgray;
+	border-radius: 20%
+}
+.signg_btn{
+	background-color: blanchedalmond;
+	border: 1px solid;
+	border-radius: 15%;
+}
+.Xproducts{
+	margin-left: auto;
+	margin-right: auto;
+	width: 20%;
+	display: inline-block;
+}
+.filter_all{
+	margin: 0 auto;
+	width: 65%;
+	text-align: left;
+
+}
+.filter_all h2{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.filter form{
+	overflow: hidden;
+}
+.filter .filter-input{
+	display: block;
+	float: left;
+	width: 60px;
+}
+.filter .filter-input input{
+	margin-left: 10px;
+}
+.filter_all .filter input[type=submit]{
+	padding: 4px;
+	background-color: #006cff;
+	color: white;
+	border-radius: 5px;
+}
+
+.pay_block
+{
+	border: 1px solid lavender;
+	width: 20%;
+	border-radius: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.pay_block p
+{
+	font-size: 30px;
+}
+
+.buy_button{
+	height: 104px;
+	line-height: 90px;
+	font-size: xx-large;
+	border: 1px solid darkgray;
+	border-radius: 20%;
+	background-color: lavender;
+}
+
+.result{
+	border: 1px solid darkorange;
+	width: 20%;
+	border-radius: 20%;
+	text-align: center;
+}
