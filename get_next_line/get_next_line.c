@@ -19,7 +19,7 @@ static char		*ft_new_strjoin(char *s1, char const *s2)
 	char *tmp;
 
 	tmp = NULL;
-	fresh = (char*)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	fresh = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (fresh)
 	{
 		tmp = fresh;
@@ -39,7 +39,7 @@ static char		*ft_new_strjoin(char *s1, char const *s2)
 	return (tmp);
 }
 
-static int		ft_next_line(char **line, t_line *lst, char *buf)
+static int		search_line(char **line, t_line *lst, char *buf, int flag)
 {
 	char *ptr;
 	char *new;
@@ -47,8 +47,7 @@ static int		ft_next_line(char **line, t_line *lst, char *buf)
 	ptr = NULL;
 	if (!lst->str || (!(*lst->str) && !(*buf)))
 		return (0);
-	free(buf);
-	if ((ptr = ft_strchr(lst->str, '\n')))
+	if ((ptr = ft_strchr(lst->str, '\n')) && flag == 0)
 	{
 		*ptr = '\0';
 		*line = ft_strdup(lst->str);
@@ -58,13 +57,38 @@ static int		ft_next_line(char **line, t_line *lst, char *buf)
 		ptr = NULL;
 		return (1);
 	}
-	else
+	else if (flag == 1)
 	{
 		*line = ft_strdup(lst->str);
 		free(lst->str);
 		lst->str = NULL;
 		return (1);
 	}
+	return (0);
+}
+
+static int		next_line(t_line *lst, char **line, const int fd, char buf[])
+{
+	size_t	n;
+
+	if (search_line(line, lst, buf, 0))
+		return (1);
+	while ((n = read(fd, buf, BUFF_SIZE)))
+	{
+		buf[n] = '\0';
+		if (!lst->str)
+			lst->str = ft_strnew(ft_strlen(buf));
+		if (!(lst->str = ft_new_strjoin(lst->str, buf)))
+			return (-1);
+		if (ft_strchr(buf, '\n'))
+			break ;
+	}
+	if (search_line(line, lst, buf, 0))
+		return (1);
+	else if (n < BUFF_SIZE && (!lst->str || ft_strlen(lst->str) == 0))
+		return (0);
+	else if (search_line(line, lst, buf, 1))
+		return (1);
 	return (0);
 }
 
@@ -84,27 +108,18 @@ int				get_next_line(const int fd, char **line)
 {
 	static t_line	*lst = NULL;
 	t_line			*tmp;
-	char			*buf;
-	int				n;
+	char			buf[BUFF_SIZE + 1];
 
-	buf = ft_strnew(BUFF_SIZE);
-	if ((n = read(fd, buf, 0)) < 0)
+	if (read(fd, buf, 0) < 0)
 		return (-1);
 	tmp = lst;
 	while (tmp)
 	{
 		if (tmp->fd == fd)
-			return (ft_next_line(line, tmp, buf) ? 1 : 0);
+			return (next_line(lst, line, fd, buf));
 		tmp = tmp->next;
 	}
 	if (!tmp)
 		lst = ft_create_new_list(lst, fd);
-	while ((n = read(fd, buf, BUFF_SIZE)) > 0)
-	{
-		buf[n] = '\0';
-		lst->str = ft_new_strjoin(lst->str, buf);
-	}
-	if (ft_next_line(line, lst, buf))
-		return (1);
-	return (0);
+	return (next_line(lst, line, fd, buf));
 }

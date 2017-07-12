@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strsplit_free.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sromanet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/17 14:10:17 by sromanet          #+#    #+#             */
-/*   Updated: 2016/12/26 18:21:51 by sromanet         ###   ########.fr       */
+/*   Created: 2017/07/12 19:54:03 by sromanet          #+#    #+#             */
+/*   Updated: 2017/07/12 19:54:09 by sromanet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_strsplit(char const *s, char c)
+void	ft_strsplit_free(char **split)
 {
-	char	**str;
-	int		i;
-	int		w;
-	int		len;
+	int i;
 
-	if (!s)
-		return (NULL);
-	str = (char **)malloc(sizeof(char *) * ft_wordcount(s, c) + 1);
-	if (!str)
-		return (NULL);
-	w = 0;
 	i = 0;
-	while (w < ft_wordcount(s, c))
+	if (split)
 	{
-		len = ft_wordlen(s, c, &i);
-		str[w] = ft_strsub(s, i, len);
-		i += len;
-		w++;
+		if ((i = ft_strsplit_len(split)) > 0)
+		{
+			while (i >= 0)
+			{
+				ft_strdel(&split[i]);
+				i--;
+			}
+			free(split);
+			split = NULL;
+		}
 	}
-	str[w] = NULL;
-	return (str);
 }
