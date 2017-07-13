@@ -38,8 +38,27 @@ typedef struct		s_room
 	int 			y;
 }					t_room;
 
-int			get_next_line(const int fd, char **line);
-int		ft_strsplit_len(char **split);
-void	ft_strsplit_free(char **split);
+int					get_next_line(const int fd, char **line);
+int					ft_strsplit_len(char **split);
+void				ft_strsplit_free(char **split);
+void				input(t_lem *lem, char *name);
+int 				n_rooms(char **tmp, int i, int n);
+void				room(t_lem *lem, char *tmp, int flag, int r);
+void				create_rooms(t_lem *lem, int n, int i, int j);
+void				filling(t_lem *lem, int i, int r);
+t_lem				*create_s(void);
+char				*strjoin_and_free(char *s1, char *s2);
+void				ft_delint(int **tmp, int n);
+int 				**create_int(t_lem *lem, int del, int n);
+void				create_ant(t_lem *lem, int i);
+void 				start_finish(t_lem *lem, int a);
+void				finish(t_lem *lem, int a);
+void 				check_error(t_lem *lem, int n, int i);
+int					error(t_lem *lem);
+void				connect(t_lem *lem, char *str, int i);
+int 				algoritm(t_lem *lem, int k, int n, int f);
+void				next_step(t_lem *lem, int a, int n, int i);
+void 				filling_con(t_lem *lem, int i);
+void				free_connect_tab(t_lem *lem, int i, int n);
 
 #endif
