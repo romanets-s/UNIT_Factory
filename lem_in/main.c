@@ -29,8 +29,7 @@ void	finish(t_lem *lem, int a)
 		while (++a < lem->ants)
 			if (lem->ant[a] != lem->end)
 				next_step(lem, a, -1, 0);
-		if (lem->connect[0][lem->end] != lem->ants)
-			printf("\n");
+		printf("\n");
 	}
 }
 

@@ -1,5 +1,5 @@
 NAME = lem-in
-SRC = main.c get_next_line.c split.c
+SRC = main.c get_next_line.c split.c algoritm_and_other.c input_and_rooms.c malloc_and_free.c
 SRCO = $(SRC:.c=.o)
 INCLUDES = lem_in.h
 #FLAGS = -Wall -Wextra -Werror
