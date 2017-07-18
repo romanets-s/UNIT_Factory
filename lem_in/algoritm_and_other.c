@@ -15,8 +15,8 @@
 void	connect(t_lem *lem, char *str, int i)
 {
 	char	**tmp;
-	int 	a;
-	int 	b;
+	int		a;
+	int		b;
 
 	a = -1;
 	b = -1;
@@ -39,7 +39,7 @@ void	connect(t_lem *lem, char *str, int i)
 	ft_strsplit_free(tmp);
 }
 
-int 	algoritm(t_lem *lem, int k, int n, int f)
+int		algoritm(t_lem *lem, int k, int n, int f)
 {
 	int		i;
 
@@ -78,22 +78,23 @@ void	next_step(t_lem *lem, int a, int n, int i)
 		i = 0;
 		while (++i < lem->n_rooms)
 		{
-			if (lem->way[n][i] >= 0 && (lem->connect[0][lem->way[n][i]] == 0 || lem->way[n][i] == lem->end) && lem->ant[a] == lem->way[n][i - 1])
+			if (lem->way[n][i] >= 0 && (lem->connect[0][lem->way[n][i]] == 0
+			|| lem->way[n][i] == lem->end) && lem->ant[a] == lem->way[n][i - 1])
 			{
 				lem->connect[0][lem->way[n][i - 1]] -= 1;
 				lem->connect[0][lem->way[n][i]] += 1;
 				lem->ant[a] = lem->way[n][i];
 				ft_printf("L%d-%s ", a + 1, lem->rooms[lem->way[n][i]].name);
 				flag = 1;
-				break;
+				break ;
 			}
 		}
 		if (flag)
-			break;
+			break ;
 	}
 }
 
-void 	filling_con(t_lem *lem, int i)
+void	filling_con(t_lem *lem, int i)
 {
 	int		q;
 
@@ -113,7 +114,6 @@ void	free_connect_tab(t_lem *lem, int i, int n)
 				lem->connect[i][n] = lem->ants;
 			else
 				lem->connect[i][n] = 0;
-
 		}
 	}
 }

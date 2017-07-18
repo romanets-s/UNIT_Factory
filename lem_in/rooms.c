@@ -1,50 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_and_rooms.c                                  :+:      :+:    :+:   */
+/*   rooms.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sromanet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/13 20:41:46 by sromanet          #+#    #+#             */
-/*   Updated: 2017/07/13 20:41:48 by sromanet         ###   ########.fr       */
+/*   Created: 2017/07/18 18:15:44 by sromanet          #+#    #+#             */
+/*   Updated: 2017/07/18 18:15:46 by sromanet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void		input(t_lem *lem, char *name)
-{
-	char *line;
-
-	line = NULL;
-	//del this code
-	int fd;
-	fd = open(name, O_RDONLY, 0);
-	//and change FD
-	if (get_next_line(fd, &line) == 1)
-		if ((lem->ants = ft_atoi(line)) <= 0 || ft_strlen(line) == 0)
-			lem->error = 1;
-	if (line == NULL)
-	{
-		lem->error = 1;
-		return ;
-	}
-	lem->input = ft_strdup(line);
-	ft_strdel(&line);
-	if (lem->error == 1)
-		return ;
-	while (get_next_line(fd, &line) > 0)
-	{
-		if (!ft_strlen(line) || line[0] == 'L')
-			lem->error = 1;
-		lem->input = strjoin_and_free(lem->input, line);
-		ft_strdel(&line);
-		if (lem->error == 1)
-			break ;
-	}
-}
-
-int 	n_rooms(char **tmp, int i, int n)
+int		n_rooms(char **tmp, int i, int n)
 {
 	char *ptr;
 
@@ -95,6 +63,18 @@ void	create_rooms(t_lem *lem, int n, int i, int j)
 	lem->connect[i] = NULL;
 }
 
+void	filling2(t_lem *lem, char *ptr, char *tmp)
+{
+	char *ptr2;
+
+	ptr2 = ft_strchr(tmp, '-');
+	if (ptr2 != NULL)
+		connect(lem, tmp, -1);
+	if (ptr == NULL && ptr2 == NULL && ft_strlen(tmp) > 0
+					&& !ft_isdigit(tmp[0]) && tmp[0] != '#')
+		lem->error = 1;
+}
+
 void	filling(t_lem *lem, int i, int r)
 {
 	char	**tmp;
@@ -113,11 +93,7 @@ void	filling(t_lem *lem, int i, int r)
 		else if (ft_strequ(tmp[i], "##end\0"))
 			room(lem, tmp[i], 2, r);
 		else
-		{
-			ptr = ft_strchr(tmp[i], '-');
-			if (ptr != NULL)
-				connect(lem, tmp[i], -1);
-		}
+			filling2(lem, ptr, tmp[i]);
 	}
 	ft_strsplit_free(tmp);
 	if (lem->start == -1 || lem->end == -1)

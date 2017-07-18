@@ -36,6 +36,7 @@ char	*strjoin_and_free(char *s1, char *s2)
 	char *ptr;
 	char *tmp;
 
+	tmp = NULL;
 	fresh = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 2);
 	if (fresh)
 	{
@@ -53,6 +54,7 @@ char	*strjoin_and_free(char *s1, char *s2)
 	}
 	return (tmp);
 }
+
 void	ft_delint(int **tmp, int n)
 {
 	int i;
@@ -67,12 +69,12 @@ void	ft_delint(int **tmp, int n)
 	}
 }
 
-int 	**create_int(t_lem *lem, int del, int n)
+int		**create_int(t_lem *lem, int del, int n)
 {
-	int 	**tmp;
-	int 	**ptr;
-	int 	i;
-	int 	t;
+	int	**tmp;
+	int	**ptr;
+	int	i;
+	int	t;
 
 	ptr = NULL;
 	if (del == 1)
@@ -89,8 +91,7 @@ int 	**create_int(t_lem *lem, int del, int n)
 				tmp[i][t] = ptr[i][t];
 			else
 				tmp[i][t] = -1;
-			if (t == 0)
-				tmp[i][t] = lem->start;
+			(t == 0) ? (tmp[i][t] = lem->start) : 0;
 		}
 	}
 	ft_delint(ptr, n - 1);

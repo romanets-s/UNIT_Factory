@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 
 #include "lem_in.h"
-#include <stdio.h>
 
-void 	start_finish(t_lem *lem, int a)
+void	start_finish(t_lem *lem, int a)
 {
 	while (++a < lem->ants)
 		ft_printf("L%d-%s ", a + 1, lem->rooms[lem->end].name);
@@ -22,18 +21,18 @@ void 	start_finish(t_lem *lem, int a)
 
 void	finish(t_lem *lem, int a)
 {
-	ft_printf("%s\n\n", lem->input);
+	ft_printf("%s\n\n", lem->input + 1);
 	while (lem->connect[0][lem->end] != lem->ants)
 	{
 		a = -1;
 		while (++a < lem->ants)
 			if (lem->ant[a] != lem->end)
 				next_step(lem, a, -1, 0);
-		printf("\n");
+		ft_printf("\n");
 	}
 }
 
-void 	check_error(t_lem *lem, int n, int i)
+void	check_error(t_lem *lem, int n, int i)
 {
 	int ok;
 
@@ -62,12 +61,12 @@ int		error(t_lem *lem)
 		return (0);
 }
 
-int		main(int ac, char **av)
+int		main(void)
 {
 	t_lem	*lem;
 
 	lem = create_s();
-	input(lem, av[1]);
+	input(lem);
 	if (error(lem) == 1)
 		return (EXIT_FAILURE);
 	filling(lem, 0, 0);

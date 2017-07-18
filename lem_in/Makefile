@@ -1,8 +1,8 @@
 NAME = lem-in
-SRC = main.c get_next_line.c split.c algoritm_and_other.c input_and_rooms.c malloc_and_free.c
+SRC = main.c get_next_line.c split.c algoritm_and_other.c input.c rooms.c malloc_and_free.c
 SRCO = $(SRC:.c=.o)
 INCLUDES = lem_in.h
-#FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 LIBFT = libft/libft.a
 FT_PRINTF = ft_printf/libftprintf.a
 
